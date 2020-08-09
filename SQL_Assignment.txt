@@ -1,0 +1,45 @@
+Exercise-1
+
+1.Select title, book_num from book_file where years >= 1984;
+2.Select * from book_file where years < 1984 and years > 1986;
+3.Select * from publisher orderby pubname desc;
+4.Select * from book_file where years between 1985 and 1987;
+5.Select count(*) from book_file;
+6.Select max(edition) from book_file;
+7.Select book_num,topic,title from book_file where topic like 'data%';
+8.Select pubname, pubcode, pubaddress from Publisher 
+where pubname like 'A%' and pubcode<'P5';
+9.Select topic from bookfile group by topic;
+
+
+Exercise-2
+
+create table Employee(
+EmployeeNumber varchar(4) UNIQUE,
+EmployeeName varchar(10) NOT NULL,
+DeptNo varchar(4)
+);
+INSERT INTO Employee VALUES('E1','Sandy','D1');
+INSERT INTO Employee VALUES('E2','Jo','D2');
+INSERT INTO Employee VALUES('E3','Fred','D2');
+INSERT INTO Employee VALUES('E4','Ginger','D1');
+INSERT INTO Employee VALUES('E5','Mog','D1');
+
+Alter table Employee ADD RoomNo varchar(10);
+
+update Employee set RoomNo = 'R1' where DeptNo='D2';
+update Employee set RoomNo ='R2' where EmployeeNumber='E6';
+update Employee set RoomNo ='R3' where EmployeeNumber='E7';
+update Employee set RoomNo ='R4' where EmployeeNumber='E8';
+update Employee set EmployeeName='Fido' where EmployeeNumber='E5';
+
+Alter table Employee DROP COLUMN EmployeeName;
+Delete from Employee where DeptNo='D2';
+
+Exercise-3
+
+SELECT branch_name from Branch b join Area a on b.area_code=a.area_code where manager='Bloggs';
+SELECT avg(product_price) from Product;
+SELECT max(product_Price) from Product;
+SELECT town FROM Product LEFT JOIN Stock ON Product.product_code = Stock.product_code 
+LEFT JOIN Branch ON Branch.branch_code = Stock.branch_code WHERE product_desc="Posh-Dress";
